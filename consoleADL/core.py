@@ -82,7 +82,7 @@ class Application(object):
 
     def print_usage(self):
 
-        msg = u"{0} version: {1}\n\n{2}\n\n".format(app.name, app.version, app.desc)
+        msg = u"{0} version: {1}\n\n{2}\n\n".format(self.name, self.version, self.desc)
         self.logger.info(self.pp(msg, margin=True))
 
     def exit(self, exit_code):
