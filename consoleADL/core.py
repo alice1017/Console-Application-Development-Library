@@ -3,6 +3,7 @@
 
 import sys
 import codecs
+import chardet
 import logging
 import platform
 
@@ -42,6 +43,7 @@ class Application(object):
 
         self.logger = self.getlogger(stream=log_stream)
         self.stream = base_stream(sys.stdout)
+        self.stdin = codecs.getreader(self.encoding)(sys.stdin)
 
     def getlogger(self, stream=sys.stderr, level=logging.DEBUG):
 
@@ -58,7 +60,10 @@ class Application(object):
     def pp(self, msg, margin=False):
 
         if isinstance(msg, str):
-            msg = unicode(msg, self.encoding)
+            try:
+                msg = unicode(msg, self.encoding)
+            except:
+                msg = msg.decode(chardet.detect(msg)["encoding"], "")
         
         if "\n" in msg:
 
@@ -84,13 +89,14 @@ class Application(object):
 
     def print_usage(self):
 
-        msg = u"{0} version: {1}\n\n{2}\n\n".format(self.name, self.version, self.desc)
+        msg = u"{0} version: {1}\n\n{2}\n\n".format(
+                    self.name, self.version, self.desc)
         self.logger.info(self.pp(msg, margin=True))
 
     def exit(self, exit_code):
 
-        self.stream.write(self.pp("Enterを押すと終了します"))
-        raw_input()
+        self.stream.write(self.pp(u"Enterを押すと終了します"))
+        self.stdin.readline()
         sys.exit(exit_code)
 
     def __repr__(self):
