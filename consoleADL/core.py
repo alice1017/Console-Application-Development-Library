@@ -37,9 +37,11 @@ class Application(object):
         self.margin = u"\n"*margin
         self.encoding = encoding
 
-        log_stream = codecs.getwriter(self.encoding)(sys.stderr)
-        self.logger = self.getlogger(stream=log_stream)
+        base_stream = codecs.getwriter(self.encoding)
+        log_stream = base_stream(sys.stderr)
 
+        self.logger = self.getlogger(stream=log_stream)
+        self.stream = base_stream(sys.stdout)
 
     def getlogger(self, stream=sys.stderr, level=logging.DEBUG):
 
