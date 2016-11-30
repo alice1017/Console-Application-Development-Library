@@ -32,19 +32,12 @@ class InteractiveApplication(Application):
         self.prefix = prefix
 
 
-    def _detect(self, string):
-
-        enc = chardet.detect(string)["encoding"]
-        return string.decode(enc, "")
-
-
     def _input(self, msg):
 
-        content = self.padding + msg
-        self.stream.write(content)
-        result = raw_input(self.prefix)
+        self.stream.write(self.pp(msg + self.prefix))
+        result = self.stdin.readline()
 
-        return self._detect(result)
+        return result.strip()
 
 
     def input_console(self, msg, valuetype, validate=True):
@@ -57,9 +50,6 @@ class InteractiveApplication(Application):
         * valuetype - The value type of input result.
         * validate - The boolean value whether exec validate function or not.
         """
-
-        #if not isinstance(msg, unicode):
-        #    msg = self._detect(msg)
 
         result = self._input(msg)
 
@@ -82,8 +72,8 @@ class InteractiveApplication(Application):
 
             except:
 
-                msg = u"{0}定義されていない値です。アプリケーションを終了します".format(self.padding)
-                self.logger.critical(msg)
+                self.logger.critical(self.pp(
+                    u"定義されていない値です。アプリケーションを終了します"))
                 self.exit(1)
     
         else:
