@@ -95,7 +95,7 @@ class Application(object):
 
     def exit(self, exit_code):
 
-        self.stream.write(self.pp(u"Enterを押すと終了します"))
+        self.stream.write(self.pp(u"\nEnterを押すと終了します"))
         self.stdin.readline()
         sys.exit(exit_code)
 
