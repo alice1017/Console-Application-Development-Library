@@ -16,7 +16,7 @@ class BaseApplicationTester(TestCase):
 
         pass
 
-    def test_app_attributes(self):
+    def test_app_attrs(self):
 
         if platform.system() == "Windows":
             enc = "shift_jis"
