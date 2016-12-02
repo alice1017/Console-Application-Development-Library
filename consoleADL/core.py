@@ -17,14 +17,14 @@ else:
 
 
 class Application(object):
-    """The API class of creating an application."""
+    """The Application Development Interface"""
 
 
     def __init__(self, name, desc, version,
                     padding, margin, encoding=ENCODING):
-        """Initialize application
+        """Initinalize an application attributes and items
 
-        args:
+        Args:
         * name - The application name, used by usage msg.
         * desc - The description of application, used by usage msg.
         * version - The application version, used by usage msg.
@@ -53,6 +53,12 @@ class Application(object):
             self.stdin = sys.stdin
 
     def getlogger(self, stream=sys.stderr, level=logging.DEBUG):
+        """Returns an application logger with stream and log level
+
+        Args:
+        * stream - such as sys.stdout, sys.stderr or any file-like object.
+        * level  - The log level
+        """
 
         logger = logging.getLogger(self.name)
 
@@ -65,6 +71,12 @@ class Application(object):
         return logger
 
     def pp(self, msg, margin=False):
+        """Format the message with padding.
+
+        Args:
+        * msg - Text message.
+        * margin - set True if you want to add margin above the message.
+        """
 
         if isinstance(msg, str):
             try:
@@ -94,7 +106,8 @@ class Application(object):
         else:
             return result_msg
 
-    def print(self, msg):
+    def write(self, msg):
+        """Print your message to stream with new line."""
 
         if msg.endswith("\n"):
             self.logger.info(self.pp(msg))
@@ -102,21 +115,25 @@ class Application(object):
         else:
             self.logger.info(self.pp(msg + "\n"))
 
-    def print_error(self, msg):
+    def write_error(self, msg):
+        """Print your error message to stream with new line."""
 
         self.logger.fatal(self.pp(msg+"\n"))
 
-    def print_usage(self):
+    def write_usage(self):
+        """Print usage message to stream"""
 
         msg = u"{0} version: {1}\n\n{2}\n\n".format(
                     self.name, self.version, self.desc)
         self.logger.info(self.pp(msg, margin=True))
 
     def debug(self, msg):
+        """Write debug log to stream"""
 
-        self.logger.debug(self.pp(msg))
+        self.logger.debug(self.pp(msg+"\n"))
 
     def exit(self, exit_code):
+        """Exit the application with exit code"""
 
         self.stdout.write(self.pp(u"\nEnterを押すと終了します"))
         self.stdin.readline()
