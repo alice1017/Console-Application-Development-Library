@@ -94,11 +94,27 @@ class Application(object):
         else:
             return result_msg
 
+    def print(self, msg):
+
+        if msg.endswith("\n"):
+            self.logger.info(self.pp(msg))
+
+        else:
+            self.logger.info(self.pp(msg + "\n"))
+
+    def print_error(self, msg):
+
+        self.logger.fatal(self.pp(msg+"\n"))
+
     def print_usage(self):
 
         msg = u"{0} version: {1}\n\n{2}\n\n".format(
                     self.name, self.version, self.desc)
         self.logger.info(self.pp(msg, margin=True))
+
+    def debug(self, msg):
+
+        self.logger.debug(self.pp(msg))
 
     def exit(self, exit_code):
 
