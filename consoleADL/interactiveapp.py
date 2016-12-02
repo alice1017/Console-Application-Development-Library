@@ -34,7 +34,7 @@ class InteractiveApplication(Application):
 
     def _input(self, msg):
 
-        self.stream.write(self.pp(msg + self.prefix))
+        self.stdout.write(self.pp(msg + self.prefix))
         result = self.stdin.readline()
 
         return result.strip()

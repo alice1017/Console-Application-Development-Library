@@ -44,7 +44,7 @@ class Application(object):
         log_stream = stream(sys.stderr)
 
         self.logger = self.getlogger(stream=log_stream)
-        self.stdout = _stream(sys.stdout)
+        self.stdout = stream(sys.stdout)
 
         if PLATFORM == "Windows":
             self.stdin = codecs.getreader(self.encoding)(sys.stdin)
