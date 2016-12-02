@@ -7,7 +7,9 @@ import chardet
 import logging
 import platform
 
-if platform.system() == "Windows":
+PLATFORM = platform.system()
+
+if PLATFORM == "Windows":
     ENCODING = "shift_jis"
 
 else:
@@ -38,12 +40,17 @@ class Application(object):
         self.margin = u"\n"*margin
         self.encoding = encoding
 
-        base_stream = codecs.getwriter(self.encoding)
-        log_stream = base_stream(sys.stderr)
+        stream = codecs.getwriter(self.encoding)
+        log_stream = stream(sys.stderr)
 
         self.logger = self.getlogger(stream=log_stream)
-        self.stream = base_stream(sys.stdout)
-        self.stdin = codecs.getreader(self.encoding)(sys.stdin)
+        self.stdout = _stream(sys.stdout)
+
+        if PLATFORM == "Windows":
+            self.stdin = codecs.getreader(self.encoding)(sys.stdin)
+        
+        else:
+            self.stdin = sys.stdin
 
     def getlogger(self, stream=sys.stderr, level=logging.DEBUG):
 
@@ -95,7 +102,7 @@ class Application(object):
 
     def exit(self, exit_code):
 
-        self.stream.write(self.pp(u"\nEnterを押すと終了します"))
+        self.stdout.write(self.pp(u"\nEnterを押すと終了します"))
         self.stdin.readline()
         sys.exit(exit_code)
 
