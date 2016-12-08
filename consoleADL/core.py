@@ -17,7 +17,7 @@ else:
 
 
 class Application(object):
-    """The Application Development Interface"""
+    """The Class defines the most basic applciation."""
 
 
     def __init__(self, name, desc, version,
@@ -25,12 +25,12 @@ class Application(object):
         """Initinalize an application attributes and items
 
         Args:
-        * name - The application name, used by usage msg.
-        * desc - The description of application, used by usage msg.
-        * version - The application version, used by usage msg.
-        * padding - The width from left side of terminal window to the string area.
-        * margin - The height from top side of terminal window to the string area.
-        * encoding - The application encoding. 
+          - name: The application name, used by usage msg.
+          - desc: The description of application, used by usage msg.
+          - version: The application version, used by usage msg.
+          - padding: The width from left side of terminal window to the string area.
+          - margin: The height from top side of terminal window to the string area.
+          - encoding: The application encoding. 
         """
 
         self.name = name
@@ -56,8 +56,8 @@ class Application(object):
         """Returns an application logger with stream and log level
 
         Args:
-        * stream - such as sys.stdout, sys.stderr or any file-like object.
-        * level  - The log level
+          - stream: such as sys.stdout, sys.stderr or any file-like object.
+          - level: The log level
         """
 
         logger = logging.getLogger(self.name)
@@ -74,8 +74,8 @@ class Application(object):
         """Format the message with padding.
 
         Args:
-        * msg - Text message.
-        * margin - set True if you want to add margin above the message.
+          - msg: Text message.
+          - margin: set True if you want to add margin above the message.
         """
 
         if isinstance(msg, str):
