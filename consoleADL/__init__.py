@@ -26,3 +26,4 @@ __version__ = "0.0.1a"
 from .core import Application
 from .testapp import TestApp
 from .interactiveapp import InteractiveApplication
+from .loopapp import InteractiveLoopApplication
