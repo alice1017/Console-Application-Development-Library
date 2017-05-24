@@ -4,7 +4,7 @@
 import platform
 
 from unittest import TestCase
-from consoleADL.core import Application
+from coadlib.core import Application
 
 class BaseApplicationTester(TestCase):
 

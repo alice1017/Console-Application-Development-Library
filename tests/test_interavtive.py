@@ -2,8 +2,8 @@
 # coding: utf-8
 
 from unittest import TestCase
-from consoleADL.core import ENCODING
-from consoleADL.interactiveapp import InteractiveApplication
+from coadlib.core import ENCODING
+from coadlib.interactiveapp import InteractiveApplication
 
 class InteractiveApplicationTester(TestCase):
 
