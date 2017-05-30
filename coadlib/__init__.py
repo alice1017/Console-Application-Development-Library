@@ -20,10 +20,4 @@ Application Classes:
 """
 
 __author__ = "Hayato Tominaga"
-__version__ = "0.0.1a"
-
-
-from .core import Application
-from .testapp import TestApp
-from .interactiveapp import InteractiveApplication
-from .loopapp import InteractiveLoopApplication
+__version__ = "0.1.0"
