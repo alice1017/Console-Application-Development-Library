@@ -15,9 +15,9 @@ Application Classes:
       The class provides the interactive application utilities.
       input console, validater, and so on.
 
-
-        
+　- InteractiveLoopApplication
+      The class provides a decorator for looping function.
 """
 
 __author__ = "Hayato Tominaga"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
