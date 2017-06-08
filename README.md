@@ -6,9 +6,9 @@
 
 ## Application classes
 
-* [Application](#Application)
-* [InteractiveApplication](#InteractiveApplication)
-* [InteractiveLoopApplication](#InteractiveLoopApplication)
+* [Application](#application)
+* [InteractiveApplication](#interactiveapplication)
+* [InteractiveLoopApplication](#interactiveloopapplication)
 
 ### Application
 
