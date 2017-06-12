@@ -20,4 +20,4 @@ Application Classes:
 """
 
 __author__ = "Hayato Tominaga"
-__version__ = "0.1.1"
+__version__ = "0.1.2"
