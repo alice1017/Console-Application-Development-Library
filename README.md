@@ -48,11 +48,11 @@ The `Application` class params:
 
 new param:
 
-* `prefix` - the **affix letter** placed after an input string.
+* `suffix` - the **suffix letter** placed after an input string.
 
 #### main methods
 
-* `input_console(msg, valuetype, validate=True)` - display input console with prefix, supported validate.
+* `input_console(msg, valuetype, validate=True)` - display input console with suffix, supported validate.
 
 ### InteractiveLoopApplication
 
@@ -74,7 +74,7 @@ from coadlib.apps import InteractiveLoopApplication
 app = InteractiveLoopApplication(
     name="calcuation program",
     desc="please input number, and return total.",
-    version="1.0", padding=4, margin=3, prefix=" > "
+    version="1.0", padding=4, margin=3, suffix=" > "
 )
 
 app.total = 0
