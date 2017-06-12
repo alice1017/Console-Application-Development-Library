@@ -6,7 +6,7 @@ from coadlib.apps import InteractiveLoopApplication
 app = InteractiveLoopApplication(
     name="calcuation program",
     desc="please input number, and return total.",
-    version="1.0", padding=4, margin=3, prefix=" > "
+    version="1.0", padding=4, margin=3, suffix=" > "
 )
 
 app.total = 0

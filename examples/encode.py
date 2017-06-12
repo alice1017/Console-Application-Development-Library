@@ -12,7 +12,7 @@ app = InteractiveApplication(
     name="Base64 Encoder",
     desc="Encode to base64",
     version="1.0a0", padding=4, margin=3,
-    prefix=" > "
+    suffix=" > "
 )
 
 if __name__ == "__main__":
