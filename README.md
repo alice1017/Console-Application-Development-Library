@@ -7,8 +7,15 @@
 ## Application classes
 
 * [Application](#application)
+    * [params](#params)
+    * [main methods](#main-methods)
 * [InteractiveApplication](#interactiveapplication)
+    * [params](#params-1)
+    * [main methods](#main-methods-1)
 * [InteractiveLoopApplication](#interactiveloopapplication)
+    * [params](#params-2)
+    * [main methods](#main-methods-2)
+    * [example](#example)
 
 ### Application
 
@@ -105,3 +112,16 @@ if __name__ == "__main__":
     main()
 ```
 
+## CHANGELOG
+
+### version 0.1.2
+
+* Changed app parametor from 'prefix' to 'suffix' in InteractiveApplication, and InteractiveLoopApplication.
+* Compliant with pep8
+
+### version 0.1.1
+
+* Package renamed: 'ConsoleADL' -> 'coadlib'
+* Use decorator in InteractiveLoopApplication.
+* Wroute README.md
+* To more easy import, the applications in app.py.
