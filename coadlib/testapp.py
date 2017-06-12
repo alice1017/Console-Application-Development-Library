@@ -10,6 +10,3 @@ class TestApp(Application):
 
         super(TestApp, self).__init__(
                     "test", "test app", "1.0", 4, 5, ENCODING)
-
-
-

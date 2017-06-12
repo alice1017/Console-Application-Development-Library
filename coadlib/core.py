@@ -19,18 +19,19 @@ else:
 class Application(object):
     """The Class defines the most basic applciation."""
 
-
     def __init__(self, name, desc, version,
-                    padding, margin, encoding=ENCODING):
+                 padding, margin, encoding=ENCODING):
         """Initinalize an application attributes and items
 
         Args:
           - name: The application name, used by usage msg.
           - desc: The description of application, used by usage msg.
           - version: The application version, used by usage msg.
-          - padding: The width from left side of terminal window to the string area.
-          - margin: The height from top side of terminal window to the string area.
-          - encoding: The application encoding. 
+          - padding: The width from left side of terminal window
+                     to the message area.
+          - margin: The height from top side of terminal window
+                    to the message area.
+          - encoding: The application encoding.
         """
 
         self.name = name
@@ -48,7 +49,7 @@ class Application(object):
 
         if PLATFORM == "Windows":
             self.stdin = codecs.getreader(self.encoding)(sys.stdin)
-        
+
         else:
             self.stdin = sys.stdin
 
@@ -83,7 +84,7 @@ class Application(object):
                 msg = unicode(msg, self.encoding)
             except:
                 msg = msg.decode(chardet.detect(msg)["encoding"], "")
-        
+
         if "\n" in msg:
 
             contents = []
@@ -94,7 +95,7 @@ class Application(object):
 
                 else:
                     contents.append(self.padding + line)
-            
+
             result_msg = "\n".join(contents)
 
         else:
@@ -146,6 +147,3 @@ class Application(object):
     def __str__(self):
 
         return self.__repr__()
-
-
-

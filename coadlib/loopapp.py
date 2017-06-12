@@ -3,10 +3,11 @@
 
 from .interactiveapp import InteractiveApplication, ENCODING
 
+
 class InteractiveLoopApplication(InteractiveApplication):
 
     def __init__(self, name, desc, version,
-                    padding, margin, prefix, encoding=ENCODING):
+                 padding, margin, prefix, encoding=ENCODING):
 
         super(InteractiveLoopApplication, self).__init__(
             name, desc, version, padding, margin, prefix, encoding)
@@ -14,7 +15,6 @@ class InteractiveLoopApplication(InteractiveApplication):
         # loop status
         self.STATUS_EXIT = 0
         self.STATUS_CONTINUE = 1
-
 
     def loop(self, func):
 
