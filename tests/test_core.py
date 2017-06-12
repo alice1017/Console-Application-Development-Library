@@ -6,6 +6,7 @@ import platform
 from unittest import TestCase
 from coadlib.core import Application
 
+
 class BaseApplicationTester(TestCase):
 
     def setUp(self):
@@ -20,7 +21,7 @@ class BaseApplicationTester(TestCase):
 
         if platform.system() == "Windows":
             enc = "shift_jis"
-        
+
         else:
             enc = "utf-8"
 
@@ -32,7 +33,7 @@ class BaseApplicationTester(TestCase):
         self.assertEqual(self.app.encoding, enc)
 
     def test_app_pp(self):
-        
+
         msg = u"ハロー\n\n"
 
         result = u"\n" * 5

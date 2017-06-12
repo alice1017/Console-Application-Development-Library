@@ -5,6 +5,7 @@ from unittest import TestCase
 from coadlib.core import ENCODING
 from coadlib.interactiveapp import InteractiveApplication
 
+
 class InteractiveApplicationTester(TestCase):
 
     def setUp(self):
@@ -14,10 +15,8 @@ class InteractiveApplicationTester(TestCase):
                     suffix=">>>", encoding=ENCODING)
 
     def tearDown(self):
-
         pass
 
     def test_app_attrs(self):
 
         self.assertEqual(self.app.suffix, ">>> ")
- 
