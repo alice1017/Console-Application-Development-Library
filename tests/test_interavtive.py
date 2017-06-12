@@ -11,7 +11,7 @@ class InteractiveApplicationTester(TestCase):
 
         self.app = InteractiveApplication(
                     "testapp", "app desc", "1.0", 4, 5,
-                    prefix=">>>", encoding=ENCODING)
+                    suffix=">>>", encoding=ENCODING)
 
     def tearDown(self):
 
@@ -19,5 +19,5 @@ class InteractiveApplicationTester(TestCase):
 
     def test_app_attrs(self):
 
-        self.assertEqual(self.app.prefix, ">>> ")
+        self.assertEqual(self.app.suffix, ">>> ")
  

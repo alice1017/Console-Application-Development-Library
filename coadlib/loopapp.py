@@ -7,10 +7,10 @@ from .interactiveapp import InteractiveApplication, ENCODING
 class InteractiveLoopApplication(InteractiveApplication):
 
     def __init__(self, name, desc, version,
-                 padding, margin, prefix, encoding=ENCODING):
+                 padding, margin, suffix, encoding=ENCODING):
 
         super(InteractiveLoopApplication, self).__init__(
-            name, desc, version, padding, margin, prefix, encoding)
+            name, desc, version, padding, margin, suffix, encoding)
 
         # loop status
         self.STATUS_EXIT = 0

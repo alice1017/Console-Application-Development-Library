@@ -7,7 +7,7 @@ from .core import Application, ENCODING
 class InteractiveApplication(Application):
 
     def __init__(self, name, desc, version,
-                 padding, margin, prefix, encoding=ENCODING):
+                 padding, margin, suffix, encoding=ENCODING):
         """Initialize interactive application
 
         args:
@@ -18,7 +18,7 @@ class InteractiveApplication(Application):
                     to the message area.
         * margin - The height from top side of terminal window
                    to the message area.
-        * prefix - The affix letter placed after an input string.
+        * suffix - The suffix letter placed after an input string.
                     (ex: '>> ', ': ', etc)
         * encoding - The application encoding.
         """
@@ -26,20 +26,20 @@ class InteractiveApplication(Application):
         super(InteractiveApplication, self).__init__(
             name, desc, version, padding, margin, encoding)
 
-        if not prefix.endswith(" "):
-            prefix += " "
+        if not suffix.endswith(" "):
+            suffix += " "
 
-        self.prefix = prefix
+        self.suffix = suffix
 
     def _input(self, msg):
 
-        self.stdout.write(self.pp(msg + self.prefix))
+        self.stdout.write(self.pp(msg + self.suffix))
         result = self.stdin.readline()
 
         return result.strip()
 
     def input_console(self, msg, valuetype, validate=True):
-        """Create input console with prefix.
+        """Create input console with suffix.
 
         This console provides the validate function.
 
