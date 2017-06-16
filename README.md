@@ -16,6 +16,7 @@
     * [params](#params-2)
     * [main methods](#main-methods-2)
     * [example](#example)
+    * [variables](#variables)
 
 ### Application
 
@@ -72,6 +73,11 @@ Parameters are same of InteractiveApplication class.
 #### main methods
 
 * `loop` - The decorator
+
+#### variables
+
+* app. **STATUS__CONTINUE** - Continue the loop when returns this var
+* app. **STATUS__EXIT** - Break the loop when returns this var
 
 #### example
 
