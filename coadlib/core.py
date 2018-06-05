@@ -80,9 +80,11 @@ class Application(object):
         """
 
         if isinstance(msg, str):
+
             try:
                 msg = unicode(msg, self.encoding)
-            except:
+
+            except UnicodeDecodeError:
                 msg = msg.decode(chardet.detect(msg)["encoding"], "")
 
         if "\n" in msg:
@@ -107,14 +109,14 @@ class Application(object):
         else:
             return result_msg
 
-    def write(self, msg):
+    def write(self, msg, end="\n"):
         """Print your message to stream with new line."""
 
-        if msg.endswith("\n"):
-            self.logger.info(self.pp(msg))
+        if end:
+            self.logger.info(self.pp(msg + end))
 
         else:
-            self.logger.info(self.pp(msg + "\n"))
+            self.logger.info(self.pp(msg))
 
     def write_error(self, msg):
         """Print your error message to stream with new line."""
